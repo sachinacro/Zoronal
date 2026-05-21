@@ -100,6 +100,7 @@ export const createCompany = async (
     return res.status(500).json({
       success: false,
       message:
+        error.message ||
         "Internal server error",
     });
   }
@@ -248,7 +249,7 @@ export const getCompanies = async (req, res) => {
 
     return res.status(500).json({
       success: false,
-      message: "Internal server error",
+      message: error.message || "Internal server error",
     });
   }
 };
